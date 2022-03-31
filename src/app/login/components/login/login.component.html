@@ -1,0 +1,15 @@
+<div class="login">
+  <form [formGroup]="formGroup" class="row login_form">
+  <img src="../../../../assets/png/ufc-logo.png" alt="UFC Logo" class="login_form_image">
+  <h1>Login</h1>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="email@email.com" required formControlName="email">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Senha</mat-label>
+    <input matInput type="password" placeholder="******" required formControlName="password">
+  </mat-form-field>
+  <button class="login_form_submit" mat-raised-button (click)="login()" [disabled]="!formGroup.valid">Enviar</button>
+</form>
+</div>

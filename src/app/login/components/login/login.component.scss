@@ -1,0 +1,30 @@
+.login {
+  height: 80%;
+  width: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  &_form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #fff;
+
+    padding: 15px;
+    border: 1px solid #fff;
+    border-radius: 4px;
+
+    width: 20%;
+    &_image {
+      margin-bottom: 30px;
+    }
+
+    &_submit {
+      width: auto;
+    }
+  }
+}
