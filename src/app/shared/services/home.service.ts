@@ -12,7 +12,7 @@ export class HomeService extends ServiceBaseGet<any> {
     super('HomeEndpoint', configService, httpClient);
   }
 
-  getAll() {
-    return of(['helloWorld']);
-  }
+  // getAll() {
+  //   return of(['helloWorld']);
+  // }
 }
