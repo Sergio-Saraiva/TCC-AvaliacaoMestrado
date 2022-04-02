@@ -27,11 +27,13 @@ import { AuthenticationInterceptorSerice } from './shared/services/authenticatio
     ReactiveFormsModule,
     FormsModule,
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthenticationInterceptorSerice,
-    multi: true
-  }],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthenticationInterceptorSerice,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

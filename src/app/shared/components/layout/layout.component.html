@@ -1,17 +1,18 @@
-<mat-toolbar>
-  <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with menu icon"
-  >
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>Avaliação de Mestrado</span>
-  <span class="example-spacer"></span>
-</mat-toolbar>
-
-<mat-sidenav-container>
-  <mat-sidenav-content>
+<mat-drawer-container [hasBackdrop]="true">
+  <mat-drawer #drawer [mode]="'over'"><app-menu></app-menu></mat-drawer>
+  <mat-drawer-content style="background-color: #0165a1">
+    <mat-toolbar>
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+        (click)="drawer.toggle()"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Avaliação de Mestrado</span>
+      <span class="example-spacer"></span>
+    </mat-toolbar>
     <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  </mat-drawer-content>
+</mat-drawer-container>
