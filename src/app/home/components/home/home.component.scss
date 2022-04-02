@@ -1,3 +1,20 @@
 .home {
   background-color: whitesmoke;
 }
+
+table {
+  width: 100%;
+  .can-answer-true {
+    background-color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: not-allowed;
+  }
+
+  .can-answer-false {
+    background-color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}
