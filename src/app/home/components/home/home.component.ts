@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { EvaluationForm } from 'src/app/shared/models/evaluation-form';
 import { HomeService } from 'src/app/shared/services/home.service';
+import { EvaluationFormComponent } from '../evaluation-form/evaluation-form.component';
 
 const ELEMENT_DATA: EvaluationForm[] = [
   {id: 1, name: 'Autoavaliação do Aluno', isAnswered: true },
@@ -25,7 +27,7 @@ const ELEMENT_DATA: EvaluationForm[] = [
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private homeService: HomeService) {}
+  constructor(private homeService: HomeService, public dialog: MatDialog) {}
 
   displayedColumns: string[] = ['Avaliação', 'Respondido', 'Responder'];
   dataSource = ELEMENT_DATA;
@@ -35,6 +37,10 @@ export class HomeComponent implements OnInit {
   }
 
   openForm(elementId: number): void {
-    console.log(elementId)
+    const dialogRef = this.dialog.open(EvaluationFormComponent, {
+      data: {
+        formTitle: 'Titulo do formulário'
+      }
+    })
   }
 }
