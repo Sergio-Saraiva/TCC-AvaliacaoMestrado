@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { CustomMaterialModule } from './custom-material/custom-material.module';
 import { SharedModule } from './shared/shared.module';
 import { AuthenticationInterceptorSerice } from './shared/services/authentication-interceptor.service';
+import { AnswersService } from './shared/services/answers.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,6 +29,7 @@ import { AuthenticationInterceptorSerice } from './shared/services/authenticatio
     FormsModule,
   ],
   providers: [
+    SharedModule,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthenticationInterceptorSerice,

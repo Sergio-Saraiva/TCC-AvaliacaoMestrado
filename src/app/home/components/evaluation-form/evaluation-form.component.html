@@ -1,25 +1,49 @@
-<h1 mat-dialog-title>{{data.formTitle}}</h1>
-<div mat-dialog-content>
-<form class="row">
-<mat-form-field>
-  <mat-label>Pergunta 1</mat-label>
-  <input matInput type="" name="" id="">
-</mat-form-field>
-<mat-form-field>
-  <mat-label>Pergunta 2</mat-label>
-  <input matInput type="" name="" id="">
-</mat-form-field>
-<mat-form-field>
-  <mat-label>Pergunta 3</mat-label>
-  <input matInput type="" name="" id="">
-</mat-form-field>
-<mat-form-field>
-  <mat-label>Pergunta 4</mat-label>
-  <input matInput type="" name="" id="">
-</mat-form-field>
-<mat-form-field>
-  <mat-label>Pergunta 5</mat-label>
-  <input matInput type="" name="" id="">
-</mat-form-field>
-</form>
+<h1 mat-dialog-title>{{ data.formTitle }}</h1>
+<div *ngIf="formGroup !== undefined">
+  <form [formGroup]="formGroup" mat-dialog-content class="row">
+    <mat-form-field *ngFor="let question of data?.formQuestions; let i = index">
+      <div *ngIf="question?.is_subjective === true" formArrayName="perguntas">
+        <div [formGroupName]="i">
+          <mat-label>{{ question?.pergunta }}</mat-label>
+          <br />
+          <input
+            matInput
+            type="text"
+            required
+            formControlName="subjective_answer"
+          />
+        </div>
+      </div>
+      <div *ngIf="question?.is_subjective === false" formArrayName="perguntas">
+        <div [formGroupName]="i">
+          <input matInput type="text" style="display: none" />
+          <mat-label>{{ question?.pergunta }}</mat-label>
+          <br />
+          <mat-radio-group
+            style="justify-content: center"
+            aria-label="Select an option"
+            formControlName="optionId"
+          >
+            <mat-radio-button
+              class="radio-button"
+              *ngFor="let option of question?.options"
+              value="{{ option?.id }}"
+              >{{ option?.name }}</mat-radio-button
+            >
+          </mat-radio-group>
+        </div>
+      </div>
+    </mat-form-field>
+    <div mat-dialog-actions>
+      <button mat-button (click)="close()">Cancelar</button>
+      <button
+        mat-button
+        (click)="submitForm()"
+        mat-raised-button
+        [disabled]="!formGroup.valid"
+      >
+        Salvar
+      </button>
+    </div>
+  </form>
 </div>

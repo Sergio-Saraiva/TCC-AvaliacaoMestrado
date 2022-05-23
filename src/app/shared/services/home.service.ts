@@ -7,7 +7,7 @@ import { ServiceBaseGet } from './service-base-get';
 @Injectable({
   providedIn: 'root',
 })
-export class HomeService extends ServiceBaseGet<any> {
+export class HomeService extends ServiceBaseGet<any, any> {
   constructor(configService: ConfigurationService, httpClient: HttpClient) {
     super('HomeEndpoint', configService, httpClient);
   }

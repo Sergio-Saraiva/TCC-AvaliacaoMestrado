@@ -1,18 +1,9 @@
-<mat-drawer-container [hasBackdrop]="true" style="height: 100%;">
-  <mat-drawer style="width: 300px;" #drawer [mode]="'over'"><app-menu></app-menu></mat-drawer>
-  <mat-drawer-content style="background-color: #0165a1">
-    <mat-toolbar>
-      <button
-        mat-icon-button
-        class="example-icon"
-        aria-label="Example icon-button with menu icon"
-        (click)="drawer.toggle()"
-      >
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>Avaliação de Mestrado</span>
-      <span class="example-spacer"></span>
-    </mat-toolbar>
-    <router-outlet></router-outlet>
-  </mat-drawer-content>
-</mat-drawer-container>
+<mat-toolbar class="fixed-top">
+  <!-- <img src="../../../../assets/png/ufc-logo.png" alt="UFC Logo" class="logo" /> -->
+  <span>Avaliação de Mestrado</span>
+  <span class="example-spacer"></span>
+  <app-menu></app-menu>
+</mat-toolbar>
+<div class="container max-height">
+  <router-outlet></router-outlet>
+</div>

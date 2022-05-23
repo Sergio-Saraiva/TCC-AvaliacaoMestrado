@@ -1,9 +1,15 @@
 .home {
-  background-color: whitesmoke;
 }
 
 table {
   width: 100%;
+
+  .avaliacao {
+    max-width: 70%;
+    min-width: 70%;
+    width: 70%;
+  }
+
   .can-answer-true {
     background-color: #fff;
     border: none;

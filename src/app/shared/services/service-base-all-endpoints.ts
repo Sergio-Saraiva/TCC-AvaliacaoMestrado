@@ -1,8 +1,9 @@
 import { Observable, switchMap } from 'rxjs';
+import { APIResponseModel } from '../interfaces/api-response-model';
 import { ServiceBaseGet } from './service-base-get';
 
-export class ServiceBaseAllEndpoints<S> extends ServiceBaseGet<S> {
-  getAll(query?: string): Observable<S[]> {
+export class ServiceBaseAllEndpoints<S, T> extends ServiceBaseGet<S, T> {
+  getAll(query?: string): Observable<APIResponseModel<T>> {
     return super.getAll(query);
   }
 

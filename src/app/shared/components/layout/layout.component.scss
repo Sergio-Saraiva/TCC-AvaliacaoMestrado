@@ -1,3 +1,26 @@
 .example-spacer {
-  flex: 1 1 auto;
+  display: flex;
+  flex: 1;
+}
+.logo {
+  height: 64px;
+  width: auto;
+  padding-right: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-top: 30px;
+
+  margin-bottom: 30px;
+}
+
+.max-height {
+  background-color: whitesmoke;
+  margin-top: 64px;
+}
+
+.fixed-top {
+  overflow: hidden;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
 }
