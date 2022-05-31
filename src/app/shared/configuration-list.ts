@@ -8,7 +8,7 @@ export const ConfigurationList = [
   },
   {
     environment: 'PROD',
-    url: 'https://sistemaavaliativobackend.herokuapp.com/api',
+    url: 'https://back-end-tcc-avaliacao-mestrad.herokuapp.com//api',
     authority_url: '',
     client_id: '',
     redirect_uri: '',
