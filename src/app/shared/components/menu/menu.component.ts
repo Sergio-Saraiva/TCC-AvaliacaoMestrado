@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserInformation } from '../../models/user-information';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -9,8 +10,10 @@ import { UserService } from '../../services/user.service';
 })
 export class MenuComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) {}
-
-  ngOnInit(): void {}
+  user: UserInformation;
+  ngOnInit(): void {
+    this.user = this.userService.getUserInformation();
+  }
 
   logout(): void {
     this.userService.logout();
