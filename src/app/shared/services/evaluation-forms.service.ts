@@ -27,6 +27,7 @@ export class EvaluationFormService extends ServiceBaseAllEndpoints<
     user: UserInformation,
     answers: FormAnswerResponse[]
   ): boolean {
+    console.log(form, user, answers);
     let filteredAnswers = answers.filter((a) => a.fichas_id === form.id);
     filteredAnswers = filteredAnswers.filter((a) => {
       if (
@@ -48,7 +49,9 @@ export class EvaluationFormService extends ServiceBaseAllEndpoints<
       });
     });
 
-    if (counter === form.perguntas.length) {
+    console.log(counter, form.perguntas.length);
+
+    if (counter >= form.perguntas.length) {
       return true;
     }
 

@@ -1,6 +1,11 @@
 <div class="home">
   <h1>Avaliações Disponíveis</h1>
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <table
+    mat-table
+    *ngIf="dataSource"
+    [dataSource]="dataSource"
+    class="mat-elevation-z8"
+  >
     <ng-container matColumnDef="Avaliação">
       <th class="avaliacao" mat-header-cell *matHeaderCellDef>Name</th>
       <td mat-cell *matCellDef="let element">{{ element.name }}</td>

@@ -15,7 +15,6 @@ import { AnswersService } from 'src/app/shared/services/answers.service';
 import { FormsService } from 'src/app/shared/services/forms.service';
 import { OptionsService } from 'src/app/shared/services/options.service';
 import { UserService } from 'src/app/shared/services/user.service';
-import { CloseFormConfirmationComponent } from '../close-form-confirmation/close-form-confirmation.component';
 
 @Component({
   selector: 'app-evaluation-form',
@@ -28,7 +27,6 @@ export class EvaluationFormComponent implements OnInit {
   user: UserInformation;
   constructor(
     private dialogRef: MatDialogRef<EvaluationFormComponent>,
-    private closeDialogReference: MatDialogRef<CloseFormConfirmationComponent>,
     @Inject(MAT_DIALOG_DATA) public data: EvaluationFormModalData,
     private optionsService: OptionsService,
     private userService: UserService,
@@ -104,10 +102,12 @@ export class EvaluationFormComponent implements OnInit {
   }
 
   close() {
-    this.dialog.open(CloseFormConfirmationComponent);
-    this.closeDialogReference.afterClosed().subscribe((data) => {
-      console.log(data);
-    });
-    // this.dialogRef.close({ formId: null });
+    const result = window.confirm(
+      'Suas respostas não serão salvas se sair sem submeter o formulário. Tem certeza disso?'
+    );
+
+    if (result === true) {
+      this.dialogRef.close({ formId: null });
+    }
   }
 }

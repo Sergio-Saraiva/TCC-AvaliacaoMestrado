@@ -44,12 +44,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUserInformation();
-    this.getAnswers();
-    this.getAllFormQuestions();
     this.getAllForms();
   }
 
   private getAllForms() {
+    this.getAnswers();
+    this.getAllFormQuestions();
     this.evaluationFormService.getAll(this.buildQuery()).subscribe((data) => {
       data.user.map((eF) => {
         this.fillFormQuestions(eF);
